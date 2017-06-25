@@ -52,7 +52,7 @@ const css = {
         value: {
             padding: 0,
             display: 'inline',
-            width: '50%', // 2 props: 50%, 3 props: 33.3%, etc.
+            width: '50%',
             margin: '0.66em'
         }
     }
@@ -84,6 +84,7 @@ class XpenseInput extends Component
         <div style={css.XpenseInput.wrapper}>
             <h3 style={css.XpenseInput.title}>New Xpense</h3>
             <input style={css.XpenseInput} type='text' placeholder='name' value={name} onKeyDown={this.onNameChange}/>
+            <input style={css.XpenseInput} type='text' placeholder='cost' value={cost} onKeyDown={this.onCostChange}/>
         </div>
     )
 }
@@ -101,23 +102,13 @@ const Xpense = ({ name, cost }) => (
     </div>
 )
 
-const xpenses = [
-    {
-        name: 'sensu beans',
-        cost: 13.47
-    }, {
-        name: 'overload',
-        cost: 9.07
-    }
-]
-
 class App extends Component
 {
-    state = { xpenses }
+    state = { xpenses: [] }
 
     addXpense = (xpense) => { this.setState({ xpenses: this.state.xpenses.concat(xpense) }) }
 
-    render = (props, { xpenses }) => (
+    render = (_, { xpenses }) => (
         <div style={css.App}>
             <Header />
             <XpenseInput addXpense={this.addXpense}/>

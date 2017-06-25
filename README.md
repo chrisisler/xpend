@@ -2,6 +2,8 @@
 
 An expense tracker.
 
+Check it out at [xpend.now.sh](xpend.now.sh).
+
 ## Potential Features
 - Ability to delete xpenses
 - Ability to update xpenses (price and name individually)
